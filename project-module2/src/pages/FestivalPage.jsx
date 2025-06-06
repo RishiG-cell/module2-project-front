@@ -5,16 +5,16 @@ import { Link } from "react-router-dom";
 const FestivalPage = ({ festivals, setFestivals }) => {
   return (
     <div>
-      {festivals.map((oneFest) => {
+      {festivals.map((AllFests) => {
         return (
-          <div className="festi-card" key={oneFest.id}>
-            <h1>{oneFest.date}</h1>
-            <h1>{oneFest.name}</h1>
-            <Link to={`/festival/${oneFest.id}`}>
-              <img src={oneFest.image} alt={oneFest.name} />
+          <div className="festi-card" key={AllFests.id}>
+            <h1>{AllFests.date}</h1>
+            <h1>{AllFests.name}</h1>
+            <Link to={`/festival/${AllFests.id}`}>
+              <img src={AllFests.image} alt={AllFests.name} />
             </Link>
-            <h2>{oneFest.genre}</h2>
-            <h3>{oneFest.location}</h3>
+            <h2>{AllFests.genre}</h2>
+            <h3>{AllFests.location}</h3>
           </div>
         );
       })}

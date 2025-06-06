@@ -12,13 +12,14 @@ const HomePage = ({ festivals, setFestivals }) => {
     setGenre(noDubGenre);
   }, []);
 
-  console.log(genre);
   return (
     <div className="homepage1">
       {genre.map((oneGenre, index) => {
         return (
           <div className="homepage-genre" key={index}>
-            <h2>{oneGenre}</h2>
+            <Link to={`/genre/${oneGenre}`}>
+              <h2>{oneGenre}</h2>
+            </Link>
           </div>
         );
       })}

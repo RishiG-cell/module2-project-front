@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import FestivalPage from "./pages/FestivalPage";
 import FestiDetailsPage from "./pages/FestiDetailsPage";
 import axios from "axios";
+import GenreList from "./pages/GenreList";
 
 function App() {
   const [festivals, setFestivals] = useState([]);
@@ -21,6 +22,18 @@ function App() {
   useEffect(() => {
     getAllFestivals();
   }, []);
+
+  const [countries, setCountries] = useState([]);
+  const getAllCountries = () => {
+    axios
+      .get("http://localhost:5005/countries")
+      .then((res) => setCountries(res.data))
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    getAllCountries();
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -37,7 +50,16 @@ function App() {
             <FestivalPage festivals={festivals} setFestivals={setFestivals} />
           }
         />
-        <Route path="/festival/:festId" element={<FestiDetailsPage />} />
+        <Route
+          path="/festival/:festId"
+          element={
+            <FestiDetailsPage countries={countries} festivals={festivals} />
+          }
+        />
+        <Route
+          path="/genre/:genreList"
+          element={<GenreList festivals={festivals} />}
+        />
       </Routes>
     </>
   );
