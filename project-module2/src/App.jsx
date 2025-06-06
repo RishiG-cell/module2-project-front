@@ -8,6 +8,7 @@ import FestivalPage from "./pages/FestivalPage";
 import FestiDetailsPage from "./pages/FestiDetailsPage";
 import axios from "axios";
 import GenreList from "./pages/GenreList";
+import Ticketspage from "./pages/Ticketspage";
 
 function App() {
   const [festivals, setFestivals] = useState([]);
@@ -60,6 +61,7 @@ function App() {
           path="/genre/:genreList"
           element={<GenreList festivals={festivals} />}
         />
+        <Route path="/tickets" element={<Ticketspage />} />
       </Routes>
     </>
   );

@@ -11,7 +11,7 @@ const GenreList = ({ festivals }) => {
   });
 
   return (
-    <>
+    <div className="festpage">
       {filteredGenre.map((fest) => {
         return (
           <div className="festi-card" key={fest.id}>
@@ -25,7 +25,7 @@ const GenreList = ({ festivals }) => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

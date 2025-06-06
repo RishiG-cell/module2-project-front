@@ -33,6 +33,9 @@ const FestiDetailsPage = ({ countries, festivals }) => {
 
         <h2>{oneFest.genre}</h2>
         <h3>{oneFest.location}</h3>
+        <Link to="/tickets">
+          <button>TICKETS</button>
+        </Link>
       </div>
     </div>
   );

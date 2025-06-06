@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const FestivalPage = ({ festivals, setFestivals }) => {
   return (
-    <div>
+    <div className="festpage">
       {festivals.map((AllFests) => {
         return (
           <div className="festi-card" key={AllFests.id}>
