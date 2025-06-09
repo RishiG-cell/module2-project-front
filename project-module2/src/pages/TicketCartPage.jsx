@@ -1,0 +1,65 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+const TicketCartPage = () => {
+  const [allTickets, setAllTickets] = useState([]);
+  const nav = useNavigate();
+
+  const getAllTickets = () => {
+    axios
+      .get("http://localhost:5005/tickets")
+      .then((res) => setAllTickets(res.data))
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    getAllTickets();
+  }, []);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:5005/tickets/${id}`)
+      .then((res) => {
+        getAllTickets();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const totalPrice = (oneTicket) => {
+    return oneTicket.festival.price * oneTicket.ticketAmount;
+  };
+
+  return (
+    <div>
+      {allTickets.map((oneTicket) => {
+        return (
+          <div key={oneTicket.id}>
+            <div className="ticketcart">
+              <h1>{oneTicket.festival.date}</h1>
+              <h2>{oneTicket.festival.name}</h2>
+
+              <h2>{oneTicket.ticketAmount}</h2>
+              <h2>€{oneTicket.festival.price}p.p.</h2>
+
+              <button
+                onClick={() => {
+                  handleDelete(oneTicket.id);
+                }}
+              >
+                Delete
+              </button>
+              <Link
+                to={`/edit-ticket/${oneTicket.festival.id}/${oneTicket.id}`}
+              >
+                <button>Update ticket</button>
+              </Link>
+            </div>
+            <div className="total-price">Total : €{totalPrice(oneTicket)}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default TicketCartPage;

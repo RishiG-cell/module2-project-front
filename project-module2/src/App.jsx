@@ -9,6 +9,10 @@ import FestiDetailsPage from "./pages/FestiDetailsPage";
 import axios from "axios";
 import GenreList from "./pages/GenreList";
 import Ticketspage from "./pages/Ticketspage";
+import TicketCartPage from "./pages/TicketCartPage";
+import EditAmountPage from "./pages/EditAmountPage";
+import NotFoundPage from "./pages/NotFoundPage";
+import AddFestivalPage from "./pages/AddFestivalPage";
 
 function App() {
   const [festivals, setFestivals] = useState([]);
@@ -46,6 +50,15 @@ function App() {
           }
         />
         <Route
+          path="/add-your-festi"
+          element={
+            <AddFestivalPage
+              festivals={festivals}
+              setFestivals={setFestivals}
+            />
+          }
+        />
+        <Route
           path="/festival/"
           element={
             <FestivalPage festivals={festivals} setFestivals={setFestivals} />
@@ -61,7 +74,16 @@ function App() {
           path="/genre/:genreList"
           element={<GenreList festivals={festivals} />}
         />
-        <Route path="/tickets" element={<Ticketspage />} />
+        <Route path="/ticketcart" element={<TicketCartPage />} />
+        <Route
+          path="/tickets/:festId"
+          element={<Ticketspage festivals={festivals} />}
+        />
+        <Route
+          path="/edit-ticket/:festId/:ticketId"
+          element={<EditAmountPage />}
+        />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

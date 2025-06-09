@@ -14,7 +14,6 @@ const FestiDetailsPage = ({ countries, festivals }) => {
       return true;
     }
   });
-  console.log(filteredFlag);
 
   return (
     <div className="detail-container">
@@ -32,8 +31,9 @@ const FestiDetailsPage = ({ countries, festivals }) => {
         <img src={oneFest.image} alt={oneFest.name} />
 
         <h2>{oneFest.genre}</h2>
+        <h3>{oneFest.description}</h3>
         <h3>{oneFest.location}</h3>
-        <Link to="/tickets">
+        <Link to={`/tickets/${oneFest.id}`}>
           <button>TICKETS</button>
         </Link>
       </div>

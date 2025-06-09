@@ -2,11 +2,12 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  background-color: rgb(62, 62, 62);
 }
 
 .navbar {
   padding: 5px;
-  background-color: rgba(26, 25, 25, 0.419);
+  background-color: rgba(0, 0, 0, 0.931);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,6 +88,9 @@ body {
   border-radius: 50px 0 50px 0;
   width: 100px;
 }
+.homepage-genre:hover {
+  background-color: rgba(255, 255, 255, 0.602);
+}
 
 .homepage-genre a {
   text-decoration: none;
@@ -94,7 +98,7 @@ body {
 }
 
 .homepage-genre a:hover {
-  color: rgba(236, 6, 6, 0.419);
+  color: rgba(229, 16, 16, 0.907);
 }
 
 .detail {
@@ -110,4 +114,23 @@ body {
   border-radius: 30px;
   box-shadow: 10px 10px 10px rgb(255, 255, 255);
   width: 500px;
+}
+
+.ticketcart {
+  margin: 10px;
+  padding: 10px;
+  border: solid black 3px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+}
+
+.total-price {
+  padding: 5px;
+  text-align: center;
+  margin: 10px;
+  color: rgb(0, 255, 132);
+  border: white solid 1px;
+  width: 5%;
 }
