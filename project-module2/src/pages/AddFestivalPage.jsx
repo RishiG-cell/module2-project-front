@@ -8,12 +8,11 @@ const AddFestivalPage = ({ festivals, setFestivals }) => {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [genre, setGenre] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [price, SetPrice] = useState("");
   const nav = useNavigate();
 
-  const handleSubmit = (e) => {
-    console.log("here");
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const NewFesti = {
       name,
@@ -24,14 +23,20 @@ const AddFestivalPage = ({ festivals, setFestivals }) => {
       image,
       price,
     };
-    axios
-      .post("http://localhost:5005/festivals", NewFesti)
-      .then((res) => {
-        setFestivals([...festivals, res.data]);
-        nav("/festival");
-      })
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "IronhackProjects");
+    data.append("cloud_name", "dgtp5s2en");
+    const response = await axios.post(
+      "https://api.cloudinary.com/v1_1/dgtp5s2en/image/upload",
+      data
+    );
 
-      .catch((err) => console.log(err));
+    NewFesti.image = response.data.url;
+    const data2 = await axios.post("http://localhost:5005/festivals", NewFesti);
+
+    setFestivals([...festivals, data2.data]);
+    nav("/festival");
   };
 
   return (
@@ -84,10 +89,9 @@ const AddFestivalPage = ({ festivals, setFestivals }) => {
         <label>Image : </label>
 
         <input
-          type="text"
+          type="file"
           name="image"
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          onChange={(e) => setImage(e.target.files[0])}
         />
         <label>Price per ticket :</label>
 

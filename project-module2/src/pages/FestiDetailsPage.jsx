@@ -50,17 +50,19 @@ const FestiDetailsPage = ({ countries, festivals, setFestivals }) => {
           backgroundSize: "contain",
         }}
       >
-        <h1>{oneFest.date}</h1>
-        <h1>{oneFest.name}</h1>
+        <div className="detail-text">
+          <h1>{oneFest.date}</h1>
+          <h1>{oneFest.name}</h1>
 
-        <img src={oneFest.image} alt={oneFest.name} />
+          <img src={oneFest.image} alt={oneFest.name} />
 
-        <h2>{oneFest.genre}</h2>
-        <h3>{oneFest.description}</h3>
-        <h3>{oneFest.location}</h3>
-        <Link to={`/tickets/${oneFest.id}`}>
-          <button>TICKETS</button>
-        </Link>
+          <h2>{oneFest.genre}</h2>
+          <h3>{oneFest.description}</h3>
+          <h3>{oneFest.location}</h3>
+          <Link to={`/tickets/${oneFest.id}`}>
+            <button>TICKETS</button>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -2,15 +2,27 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  background-color: rgb(62, 62, 62);
+  background: repeating-linear-gradient(45deg, #000000 0, transparent 10%),
+    repeating-linear-gradient(
+      45deg,
+      #ff919167 5%,
+      #76ff6196 10%,
+      transparent 10%,
+      transparent 40%
+    );
+  background-size: 4em 4em;
+  background-color: #000000;
 }
 
 .navbar {
   padding: 5px;
-  background-color: rgba(0, 0, 0, 0.931);
+  border: white solid 2px;
+  border-radius: 30px;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: black;
 }
 
 .navbar nav {
@@ -18,17 +30,25 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   gap: 50px;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .navbar a {
+  margin: 0 20px;
   font-size: 22px;
   text-decoration: none;
   color: rgb(255, 253, 253);
 }
 
+.navbar a:hover {
+  text-shadow: 10px 10px 10px rgb(128, 255, 111);
+}
+
 .navbar img {
   margin-left: 20px;
-  width: 10%;
+  width: 5em;
 }
 
 .navbar img:hover {
@@ -39,7 +59,7 @@ body {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.15);
+    transform: scale(1.1);
   }
   100% {
     transform: scale(1);
@@ -47,15 +67,25 @@ body {
 }
 
 .festi-card {
+  color: rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   margin: 10px;
-  border: solid black 2px;
+  border: solid rgb(255, 255, 255) 2px;
   border-radius: 20px;
   width: 600px;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
+}
+
+.festi-card:hover {
+  box-shadow: 10px 10px 30px rgb(255, 111, 169);
+  border: solid rgb(255, 111, 169) 2px;
 }
 
 .festi-card img {
@@ -84,29 +114,48 @@ body {
   margin: 10px;
   padding: 10px;
   text-align: center;
-  border: rgb(26, 25, 25, 0.419) solid 3px;
+  border: rgba(255, 255, 255, 0.84) solid 3px;
   border-radius: 50px 0 50px 0;
   width: 120px;
+  background-color: rgba(255, 255, 255, 0.855);
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
 }
 .homepage-genre:hover {
-  background-color: rgba(255, 255, 255, 0.602);
+  background-color: rgba(172, 255, 47, 0.762);
 }
 
 .homepage-genre a {
   text-decoration: none;
-  color: rgb(26, 25, 25, 0.419);
+  color: rgba(0, 0, 0, 0.419);
 }
 
 .homepage-genre a:hover {
   color: rgba(229, 16, 16, 0.907);
 }
 
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .detail {
+  margin: 50px;
+  padding: 200px;
+}
+
+.detail-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  padding: 0 200px;
+  background-color: rgba(255, 255, 255, 0.497);
+  border-radius: 200px;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+  color: rgb(56, 56, 56);
 }
 
 .detail img {
@@ -116,13 +165,37 @@ body {
   width: 500px;
 }
 
+.detail button {
+  background-color: rgba(24, 32, 249, 0.941);
+  color: white;
+  font-size: large;
+  margin: 20px 0;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.deleteBtn {
+  align-self: flex-start;
+}
+.deleteBtn:hover {
+  font-size: 20px;
+  background-color: rgba(255, 0, 0, 0.414);
+}
 .ticketcart {
   margin: 10px;
   padding: 10px;
-  border: solid black 3px;
+  border: solid rgb(255, 255, 255) 3px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+  color: white;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
 }
 
 .total-price {
@@ -132,6 +205,11 @@ body {
   color: rgb(0, 255, 132);
   border: white solid 1px;
   width: 5%;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
 }
 
 .grand-total {
@@ -140,22 +218,59 @@ body {
   margin: 10px;
   color: rgb(0, 174, 255);
   border: white solid 1px;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
+}
+
+.grand-total:hover {
+  color: palevioletred;
 }
 
 .add-fest form {
-  padding: 40px;
+  margin: 20px;
   text-align: center;
   color: white;
   display: flex;
   flex-direction: column;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: larger;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
 }
 
-.deleteBtn {
-  width: max-content;
-  float: left;
-  margin-right: -50px;
+.add-fest button {
+  color: white;
+  background-color: rgb(37, 37, 239);
+  margin: 20px 0;
+  text-align: center;
+  width: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
 }
-.deleteBtn:hover {
-  font-size: 50px;
-  background-color: rgba(255, 0, 0, 0.414);
+
+.tickets {
+  text-align: center;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2em;
+  color: white;
+  box-shadow: 10px 10px 30px rgb(128, 255, 111);
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  align-items: center;
+}
+
+.tickets button {
+  margin: 10px;
+  font-size: medium;
+  border-radius: 10px;
+  background-color: rgb(57, 57, 241);
+  color: white;
 }
