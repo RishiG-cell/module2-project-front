@@ -1,8 +1,10 @@
+import axios from "axios";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-const FestiDetailsPage = ({ countries, festivals }) => {
+const FestiDetailsPage = ({ countries, festivals, setFestivals }) => {
   const { festId } = useParams();
+  const nav = useNavigate();
 
   const oneFest = festivals.find((oneFestival) => {
     if (oneFestival.id === festId) {
@@ -15,8 +17,31 @@ const FestiDetailsPage = ({ countries, festivals }) => {
     }
   });
 
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:5005/festivals/${id}`)
+      .then((res) => {
+        const filteredFest = festivals.filter((oneFest) => {
+          if (oneFest.id !== id) {
+            return true;
+          }
+        });
+        setFestivals(filteredFest);
+        nav("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="detail-container">
+      <div
+        className="deleteBtn"
+        onClick={() => {
+          handleDelete(oneFest.id);
+        }}
+      >
+        🗑️
+      </div>
       <div
         className="detail"
         style={{

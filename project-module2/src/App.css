@@ -86,7 +86,7 @@ body {
   text-align: center;
   border: rgb(26, 25, 25, 0.419) solid 3px;
   border-radius: 50px 0 50px 0;
-  width: 100px;
+  width: 120px;
 }
 .homepage-genre:hover {
   background-color: rgba(255, 255, 255, 0.602);
@@ -123,7 +123,6 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 60%;
 }
 
 .total-price {
@@ -133,4 +132,30 @@ body {
   color: rgb(0, 255, 132);
   border: white solid 1px;
   width: 5%;
+}
+
+.grand-total {
+  padding: 5px;
+  text-align: center;
+  margin: 10px;
+  color: rgb(0, 174, 255);
+  border: white solid 1px;
+}
+
+.add-fest form {
+  padding: 40px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.deleteBtn {
+  width: max-content;
+  float: left;
+  margin-right: -50px;
+}
+.deleteBtn:hover {
+  font-size: 50px;
+  background-color: rgba(255, 0, 0, 0.414);
 }

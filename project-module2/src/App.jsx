@@ -39,6 +39,9 @@ function App() {
     getAllCountries();
   }, []);
 
+  if (festivals.length === 0) {
+    return <p>loading...</p>;
+  }
   return (
     <>
       <NavBar />
@@ -67,7 +70,11 @@ function App() {
         <Route
           path="/festival/:festId"
           element={
-            <FestiDetailsPage countries={countries} festivals={festivals} />
+            <FestiDetailsPage
+              countries={countries}
+              festivals={festivals}
+              setFestivals={setFestivals}
+            />
           }
         />
         <Route

@@ -4,12 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 
 const TicketCartPage = () => {
   const [allTickets, setAllTickets] = useState([]);
+  const [grandTotal, setGrandTotal] = useState(0);
   const nav = useNavigate();
 
   const getAllTickets = () => {
     axios
       .get("http://localhost:5005/tickets")
-      .then((res) => setAllTickets(res.data))
+      .then((res) => {
+        setAllTickets(res.data);
+        let subtotal = 0;
+        for (let i = 0; i < res.data.length; i++) {
+          subtotal += totalPrice(res.data[i]);
+        }
+        setGrandTotal(subtotal);
+        console.log(subtotal);
+      })
       .catch((err) => console.log(err));
   };
   useEffect(() => {
@@ -58,6 +67,7 @@ const TicketCartPage = () => {
           </div>
         );
       })}
+      <div className="grand-total"> Grand-total : €{grandTotal} </div>
     </div>
   );
 };
