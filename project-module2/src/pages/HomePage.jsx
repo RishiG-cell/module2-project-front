@@ -23,6 +23,17 @@ const HomePage = ({ festivals, setFestivals }) => {
           </div>
         );
       })}
+      <div className="frontpage">
+        {festivals.map((AllFests) => {
+          return (
+            <div key={AllFests.id}>
+              <Link to={`/festival/${AllFests.id}`}>
+                <img src={AllFests.image} alt={AllFests.name} />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -36,7 +36,9 @@ const EditAmountPage = () => {
       <h1>Tickets</h1>
       <div>
         <ul>
-          <li>{`${oneTicket?.festival.date} ${oneTicket?.festival.name} ${oneTicket?.festival.location}`}</li>
+          <li>{`${oneTicket?.festival.date} `}</li>
+          <li>{`${oneTicket?.festival.name}`}</li>
+          <li>{`${oneTicket?.festival.location}`}</li>
         </ul>
         <form onSubmit={handleChange}>
           <input

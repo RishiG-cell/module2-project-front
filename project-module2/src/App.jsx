@@ -13,9 +13,14 @@ import TicketCartPage from "./pages/TicketCartPage";
 import EditAmountPage from "./pages/EditAmountPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AddFestivalPage from "./pages/AddFestivalPage";
+import EditFest from "./pages/EditFest";
 
 function App() {
   const [festivals, setFestivals] = useState([]);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const getAllFestivals = () => {
     axios
@@ -42,9 +47,25 @@ function App() {
   if (festivals.length === 0) {
     return <p>loading...</p>;
   }
+
+  const handleLogin = () => {
+    if (username === "admin" && password === "1234") {
+      setLoggedIn(true);
+      setError(" ");
+    } else {
+      setError("Get outtaaa here ! ");
+    }
+  };
+  const handleLogout = () => {
+    setLoggedIn(false);
+    setUsername("");
+    setPassword("");
+    setError("");
+  };
+
   return (
     <>
-      <NavBar />
+      <NavBar loggedIn={loggedIn} />
       <Routes>
         <Route
           path="/"
@@ -58,6 +79,14 @@ function App() {
             <AddFestivalPage
               festivals={festivals}
               setFestivals={setFestivals}
+              loggedIn={loggedIn}
+              username={username}
+              setUsername={setUsername}
+              password={password}
+              setPassword={setPassword}
+              error={error}
+              handleLogin={handleLogin}
+              handleLogout={handleLogout}
             />
           }
         />
@@ -74,6 +103,7 @@ function App() {
               countries={countries}
               festivals={festivals}
               setFestivals={setFestivals}
+              loggedIn={loggedIn}
             />
           }
         />
@@ -89,6 +119,12 @@ function App() {
         <Route
           path="/edit-ticket/:festId/:ticketId"
           element={<EditAmountPage />}
+        />
+        <Route
+          path="/edit-fest/:festId"
+          element={
+            <EditFest festivals={festivals} setFestivals={setFestivals} />
+          }
         />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

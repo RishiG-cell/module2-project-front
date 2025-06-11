@@ -28,7 +28,9 @@ const Ticketspage = ({ festivals }) => {
       <h1>Tickets</h1>
       <div>
         <ul>
-          <li>{`${oneFest?.date} ${oneFest?.name} ${oneFest?.location}`}</li>
+          <li>{`${oneFest?.date} `}</li>
+          <li>{`${oneFest?.name} `}</li>
+          <li>{`${oneFest?.location}`}</li>
         </ul>
         <form onSubmit={handleSale}>
           <input

@@ -51,6 +51,7 @@ const TicketCartPage = () => {
               <h2>€{oneTicket.festival.price}p.p.</h2>
 
               <button
+                id="deleteBtn"
                 onClick={() => {
                   handleDelete(oneTicket.id);
                 }}

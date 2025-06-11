@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const FestiDetailsPage = ({ countries, festivals, setFestivals }) => {
+const FestiDetailsPage = ({ countries, festivals, setFestivals, loggedIn }) => {
   const { festId } = useParams();
   const nav = useNavigate();
 
@@ -34,14 +34,19 @@ const FestiDetailsPage = ({ countries, festivals, setFestivals }) => {
 
   return (
     <div className="detail-container">
-      <div
-        className="deleteBtn"
-        onClick={() => {
-          handleDelete(oneFest.id);
-        }}
-      >
-        🗑️
-      </div>
+      {loggedIn ? (
+        <div
+          className="deleteBtn"
+          onClick={() => {
+            handleDelete(oneFest.id);
+          }}
+        >
+          🗑️
+        </div>
+      ) : (
+        <div></div>
+      )}
+      {loggedIn ? <Link to={`/edit-fest/${oneFest.id}`}>Edit</Link> : <></>}
       <div
         className="detail"
         style={{
