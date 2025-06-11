@@ -215,12 +215,19 @@ body {
   border-radius: 10px;
 }
 
-.deleteBtn {
-  align-self: flex-start;
+.deleteBtn,
+.editBtn {
+  margin: 10px;
+  align-self: first baseline;
 }
-.deleteBtn:hover {
-  font-size: 20px;
+.deleteBtn:hover,
+.editBtn:hover {
+  font-size: 30px;
   background-color: rgba(255, 0, 0, 0.414);
+}
+
+.editBtn {
+  font-size: 20px;
 }
 .ticketcart {
   margin: 10px;

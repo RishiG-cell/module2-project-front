@@ -46,7 +46,9 @@ const FestiDetailsPage = ({ countries, festivals, setFestivals, loggedIn }) => {
       ) : (
         <div></div>
       )}
-      {loggedIn ? <Link to={`/edit-fest/${oneFest.id}`}>Edit</Link> : <></>}
+      <div className="editBtn">
+        {loggedIn ? <Link to={`/edit-fest/${oneFest.id}`}>♻️</Link> : <></>}
+      </div>
       <div
         className="detail"
         style={{
