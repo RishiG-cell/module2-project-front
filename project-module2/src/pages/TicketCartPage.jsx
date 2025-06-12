@@ -9,7 +9,7 @@ const TicketCartPage = () => {
 
   const getAllTickets = () => {
     axios
-      .get("http://localhost:5005/tickets")
+      .get(`${API_URL}/tickets`)
       .then((res) => {
         setAllTickets(res.data);
         let subtotal = 0;
@@ -27,7 +27,7 @@ const TicketCartPage = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5005/tickets/${id}`)
+      .delete(`${API_URL}/tickets/${id}`)
       .then((res) => {
         getAllTickets();
       })
