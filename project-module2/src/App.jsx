@@ -14,6 +14,7 @@ import EditAmountPage from "./pages/EditAmountPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AddFestivalPage from "./pages/AddFestivalPage";
 import EditFest from "./pages/EditFest";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5005";
 
 function App() {
   const [festivals, setFestivals] = useState([]);
@@ -24,7 +25,7 @@ function App() {
 
   const getAllFestivals = () => {
     axios
-      .get("http://localhost:5005/festivals")
+      .get(`${API_URL}/festivals`)
       .then((res) => setFestivals(res.data))
 
       .catch((err) => console.log(err));
@@ -36,7 +37,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const getAllCountries = () => {
     axios
-      .get("http://localhost:5005/countries")
+      .get(`${API_URL}/countries`)
       .then((res) => setCountries(res.data))
       .catch((err) => console.log(err));
   };

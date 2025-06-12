@@ -44,7 +44,7 @@ const AddFestivalPage = ({
     );
 
     NewFesti.image = response.data.url;
-    const data2 = await axios.post("http://localhost:5005/festivals", NewFesti);
+    const data2 = await axios.post(`${API_URL}/festivals`, NewFesti);
 
     setFestivals([...festivals, data2.data]);
     nav("/festival");

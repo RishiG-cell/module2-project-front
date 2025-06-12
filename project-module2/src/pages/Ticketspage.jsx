@@ -15,7 +15,7 @@ const Ticketspage = ({ festivals }) => {
 
   const handleSale = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:5005/tickets", {
+    const response = await axios.post(`${API_URL}/tickets`, {
       festival: oneFest,
       ticketAmount: amount,
     });

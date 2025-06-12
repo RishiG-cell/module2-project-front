@@ -19,7 +19,7 @@ const FestiDetailsPage = ({ countries, festivals, setFestivals, loggedIn }) => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5005/festivals/${id}`)
+      .delete(`${API_URL}/festivals/${id}`)
       .then((res) => {
         const filteredFest = festivals.filter((oneFest) => {
           if (oneFest.id !== id) {

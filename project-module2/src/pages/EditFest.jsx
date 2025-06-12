@@ -51,7 +51,7 @@ const EditFest = ({ festivals, setFestivals }) => {
       );
       editFesti.image = response.data.url;
       const data2 = await axios.patch(
-        `http://localhost:5005/festivals/${festId}`,
+        `${API_URL}/festivals/${festId}`,
         editFesti
       );
       const updateFest = festivals.map((oneFest) => {
@@ -67,7 +67,7 @@ const EditFest = ({ festivals, setFestivals }) => {
     } else {
       console.log("hello without");
       const data2 = await axios.patch(
-        `http://localhost:5005/festivals/${festId}`,
+        `${API_URL}/festivals/${festId}`,
         editFesti
       );
       const updateFest = festivals.map((oneFest) => {

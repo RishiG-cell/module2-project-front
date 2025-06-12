@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.PNG";
-const NavBar = ({ loggedIn }) => {
+const NavBar = () => {
   return (
     <div className="navbar">
       <Link to="/">

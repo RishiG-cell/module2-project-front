@@ -12,7 +12,7 @@ const EditAmountPage = () => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:5005/tickets/${ticketId}`, oneTicket)
+      .put(`${API_URL}/tickets/${ticketId}`, oneTicket)
       .then((res) => {
         nav(`/ticketcart`);
       })
@@ -21,7 +21,7 @@ const EditAmountPage = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5005/tickets/${ticketId}`)
+      .get(`${API_URL}/tickets/${ticketId}`)
       .then((res) => {
         setOneTicket(res.data);
       })
